@@ -38,3 +38,9 @@ Route::post('conversation/findUserByEmail', 'ConversationController@findUserByEm
 
 Route::post('conversation/{id}/addMessage', 'ConversationController@addMessage')
     ->name('conversation.addMessage');
+
+Route::post('conversation/updateMessage/{message_id}', 'ConversationController@updateMessage')
+    ->name('conversation.updateMessage');
+
+Route::post('conversation/deleteMessage', 'ConversationController@deleteMessage')
+    ->name('conversation.deleteMessage');

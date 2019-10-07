@@ -54,11 +54,14 @@ class ConversationController extends Controller
     public function findConversationById($id)
     {
         $conversation = Conversation::find($id);
-        $lastMessage = $conversation->messages->last();
+        if (!$conversation->users->contains(Auth::user())) {
+            return redirect()->route('conversation.list');
+        }
+        $messages = $conversation->messages;
         $colors = Color::all();
         return view('conversation.conversation', [
             'conversation' => $conversation,
-            'message' => $lastMessage,
+            'messages' => $messages,
             'colors' => $colors
         ]);
     }
@@ -94,5 +97,56 @@ class ConversationController extends Controller
         return redirect()->route('conversation.findConversationById', [
             'id' => $id
         ]);
+    }
+
+    public function updateMessage(Request $request, $message_id)
+    {
+
+        $message = Message::find($message_id);
+
+        // This method is called when a message is dragged or resize,
+        // when the user drags the message towards the bin, the dragged event is called.
+        // If the user drops it in the bin, this method will be called, but the message will be
+        // deleted before we can update it. This condition is a way of checking that the message still exists
+        if ($message !== null) {
+            $updateMessage = Message::find($message_id)->update([
+                'left' => $request['left'],
+                'top' => $request['top'],
+                'width' => $request['width'],
+                'height' => $request['height'],
+                'zIndex' => $request['zIndex']
+            ]);
+        } else {
+            $updateMessage = true;
+        }
+
+
+        if ($updateMessage) {
+            return response()->json([
+                'status' => 200,
+                'message' => $updateMessage
+            ]);
+        } else {
+            return response()->json([
+                'status' => 500,
+                'message' => $updateMessage
+            ]);
+        }
+    }
+
+    public function deleteMessage(Request $request)
+    {
+
+        $deleteMessage = Message::destroy($request['id']);
+
+        if ($deleteMessage) {
+            return response()->json([
+                'status' => 200
+            ]);
+        } else {
+            return response()->json([
+                'status' => 500
+            ]);
+        }
     }
 }

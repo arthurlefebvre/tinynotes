@@ -25,6 +25,7 @@
     },
     "dependencies": {
         "@fortawesome/fontawesome-free": "^5.11.2",
+        "jquery-ui": "^1.12.1",
         "material-icons": "^0.3.1"
     }
 }

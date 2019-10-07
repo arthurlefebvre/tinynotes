@@ -101,6 +101,92 @@ $(document).ready(function() {
         });
     });
 
+    function updateMessageDisplay(elem) {
+        const message = elem;
+        const message_id = elem.data("id");
+        $.ajax({
+            url: "/conversation/updateMessage/" + message_id,
+            type: "post",
+            data: {
+                left: message.css("left"),
+                top: message.css("top"),
+                width: message.css("width"),
+                height: message.css("height"),
+                zIndex: message.css("zIndex")
+            },
+            success: function(response) {
+                if (response["status"] === 403) {
+                    window.location.href = "/conversation/";
+                }
+            },
+            error: function(error) {
+                console.log(error);
+            }
+        });
+    }
+
+    // Get max zIndex from all the post-its on the page
+    function getzIndexMax() {
+        let zIndexMax = 0;
+        $(".postit").each(function() {
+            if ($(this).css("zIndex") > zIndexMax) {
+                zIndexMax = parseInt($(this).css("zIndex"), 10);
+            }
+        });
+        return zIndexMax;
+    }
+
+    $(".draggable").draggable({
+        stop: function() {
+            updateMessageDisplay($(this));
+        }
+    });
+    $(".resizable").resizable({
+        stop: function() {
+            updateMessageDisplay($(this));
+        }
+    });
+
+    $("#trash-can").droppable({
+        over: function(event, ui) {
+            $(ui.draggable).removeClass("draggable");
+        },
+        out: function(event, ui) {
+            $(ui.draggable).addClass("draggable");
+        },
+        drop: function(event, ui) {
+            const message_id = $(ui.draggable).data("id");
+            $.ajax({
+                url: "/conversation/deleteMessage/",
+                type: "post",
+                data: {
+                    id: message_id
+                },
+                success: function(response) {
+                    if (response["status"] !== 200) {
+                        window.location.href = "/conversation/";
+                    } else {
+                        $(ui.draggable).fadeOut("slow");
+                    }
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }
+    });
+
+    // Put post-it on top of all others when clicked or dragged
+    $(".postit").on("click", function() {
+        let zIndexMax = getzIndexMax();
+        $(this).css("zIndex", zIndexMax + 1);
+    });
+
+    $(".postit").on("dragstart", function() {
+        let zIndexMax = getzIndexMax();
+        $(this).css("zIndex", zIndexMax + 1);
+    });
+
     // Uncomment to enable tooltips
     // $(function() {
     //     $('[data-toggle="tooltip"]').tooltip();

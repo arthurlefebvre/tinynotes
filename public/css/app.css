@@ -1,4 +1,92 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);@import url(https://fonts.googleapis.com/css?family=Reenie+Beanie);/*!
+ * jQuery UI Draggable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+.ui-draggable-handle {
+	touch-action: none;
+}
+/*!
+ * jQuery UI Resizable 1.12.1
+ * http://jqueryui.com
+ *
+ * Copyright jQuery Foundation and other contributors
+ * Released under the MIT license.
+ * http://jquery.org/license
+ */
+.ui-resizable {
+	position: relative;
+}
+.ui-resizable-handle {
+	position: absolute;
+	font-size: 0.1px;
+	display: block;
+	touch-action: none;
+}
+.ui-resizable-disabled .ui-resizable-handle,
+.ui-resizable-autohide .ui-resizable-handle {
+	display: none;
+}
+.ui-resizable-n {
+	cursor: n-resize;
+	height: 7px;
+	width: 100%;
+	top: -5px;
+	left: 0;
+}
+.ui-resizable-s {
+	cursor: s-resize;
+	height: 7px;
+	width: 100%;
+	bottom: -5px;
+	left: 0;
+}
+.ui-resizable-e {
+	cursor: e-resize;
+	width: 7px;
+	right: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-w {
+	cursor: w-resize;
+	width: 7px;
+	left: -5px;
+	top: 0;
+	height: 100%;
+}
+.ui-resizable-se {
+	cursor: se-resize;
+	width: 12px;
+	height: 12px;
+	right: 1px;
+	bottom: 1px;
+}
+.ui-resizable-sw {
+	cursor: sw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	bottom: -5px;
+}
+.ui-resizable-nw {
+	cursor: nw-resize;
+	width: 9px;
+	height: 9px;
+	left: -5px;
+	top: -5px;
+}
+.ui-resizable-ne {
+	cursor: ne-resize;
+	width: 9px;
+	height: 9px;
+	right: -5px;
+	top: -5px;
+}
+@charset "UTF-8";
 
 /*!
  * Bootstrap v4.3.1 (https://getbootstrap.com/)
@@ -10685,6 +10773,7 @@ a.text-dark:focus {
   border-radius: 50px;
   text-align: center;
   box-shadow: 2px 2px 3px #999;
+  z-index: 10000;
 }
 
 @media screen and (max-width: 992px) {
@@ -10698,6 +10787,7 @@ a.text-dark:focus {
     border-radius: 50px;
     text-align: center;
     box-shadow: 2px 2px 3px #999;
+    z-index: 10000;
   }
 }
 
@@ -10709,16 +10799,29 @@ a.text-dark:focus {
   cursor: pointer !important;
 }
 
+.trash-can {
+  position: absolute;
+  bottom: 20px;
+}
+
+#trash-can {
+  width: 100px;
+  height: 100px;
+  padding: 0.5em;
+  position: fixed;
+  bottom: 40px;
+  left: 40px;
+}
+
 .postit {
   line-height: 1;
   text-align: center;
   word-wrap: break-word;
-  width: 500px;
-  min-height: 500px;
+  width: 350px;
   padding: 35px;
   position: relative;
   font-family: "Reenie Beanie";
-  font-size: 3em;
+  font-size: 2em;
   border-bottom-right-radius: 60px 10px;
   display: inline-block;
   background: #ffff88;
@@ -10733,8 +10836,8 @@ a.text-dark:focus {
     line-height: 1;
     text-align: center;
     word-wrap: break-word;
-    width: 350px;
-    min-height: 350px;
+    width: 200px;
+    height: 200px;
     padding: 35px;
     position: relative;
     font-family: "Reenie Beanie";
@@ -10755,7 +10858,7 @@ a.text-dark:focus {
     text-align: center;
     word-wrap: break-word;
     width: 250px;
-    min-height: 250px;
+    height: 250px;
     padding: 35px;
     position: relative;
     font-family: "Reenie Beanie";

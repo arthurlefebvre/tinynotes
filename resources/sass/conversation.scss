@@ -9,6 +9,7 @@
     border-radius: 50px;
     text-align: center;
     box-shadow: 2px 2px 3px #999;
+    z-index: 10000;
 }
 
 @media screen and (max-width: 992px) {
@@ -23,6 +24,7 @@
         border-radius: 50px;
         text-align: center;
         box-shadow: 2px 2px 3px #999;
+        z-index: 10000;
     }
 }
 
@@ -32,4 +34,18 @@
 
 .fab:hover {
     cursor: pointer !important;
+}
+
+.trash-can {
+    position: absolute;
+    bottom: 20px;
+}
+
+#trash-can {
+    width: 100px;
+    height: 100px;
+    padding: 0.5em;
+    position: fixed;
+    bottom: 40px;
+    left: 40px;
 }
