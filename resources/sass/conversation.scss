@@ -1,0 +1,35 @@
+.fab {
+    position: fixed;
+    width: 70px;
+    height: 70px;
+    bottom: 40px;
+    right: 40px;
+    //background-color: #0c9;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    box-shadow: 2px 2px 3px #999;
+}
+
+@media screen and (max-width: 992px) {
+    .fab {
+        position: fixed;
+        width: 70px;
+        height: 70px;
+        bottom: 20px;
+        right: 20px;
+        //background-color: #0c9;
+        color: #fff;
+        border-radius: 50px;
+        text-align: center;
+        box-shadow: 2px 2px 3px #999;
+    }
+}
+
+.fab-icon {
+    margin-top: 15px;
+}
+
+.fab:hover {
+    cursor: pointer !important;
+}
