@@ -18,7 +18,7 @@ class CreateMessagesTable extends Migration
             $table->unsignedBigInteger('conversation_id');
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('color_id');
-            $table->string('message');
+            $table->longText('message');
             $table->string('left')->nullable();
             $table->string('top')->nullable();
             $table->string('width')->nullable();

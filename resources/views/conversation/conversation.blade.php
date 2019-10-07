@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col">
-            <h1>{{ $conversation->name }}</h1>
+            <h1>{{ decrypt($conversation->name) }}</h1>
         </div>
     </div>
         @if($messages->isEmpty())
@@ -18,7 +18,7 @@
                         top: {{$message->top}};
                         width:{{$message->width}};
                         height:{{$message->height}};
-                        z-index: {{$message->zIndex}};">{{ $message->message }}</div>
+                        z-index: {{$message->zIndex}};">{{ decrypt($message->message) }}</div>
             @endforeach
         @endif
 </div>

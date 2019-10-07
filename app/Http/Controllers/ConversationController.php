@@ -36,7 +36,7 @@ class ConversationController extends Controller
 
             $conversation = Conversation::create(
                 [
-                    'name' => $request['name']
+                    'name' => encrypt($request['name'])
                 ]
             );
 
@@ -88,7 +88,7 @@ class ConversationController extends Controller
     public function addMessage(Request $request, $id)
     {
         $message = Message::create([
-            'message' => $request['message'],
+            'message' => encrypt($request['message']),
             'user_id' => Auth::user()->id,
             'conversation_id' => $id,
             'color_id' => $request['color_id']
