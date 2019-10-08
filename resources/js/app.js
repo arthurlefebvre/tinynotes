@@ -81,7 +81,6 @@ $(document).ready(function() {
     $(document).on("click", "#createConversation", function() {
         const userId = sessionStorage.getItem("userId");
         const name = $("#conversationName").val();
-        console.log(userId, name);
         $.ajax({
             url: "/conversation/create",
             type: "post",
@@ -138,7 +137,6 @@ $(document).ready(function() {
     }
 
     $(".draggable").draggable({
-        containment: "document",
         stop: function() {
             updateMessageDisplay($(this));
         }

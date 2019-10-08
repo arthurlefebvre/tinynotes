@@ -42985,7 +42985,6 @@ $(document).ready(function () {
   $(document).on("click", "#createConversation", function () {
     var userId = sessionStorage.getItem("userId");
     var name = $("#conversationName").val();
-    console.log(userId, name);
     $.ajax({
       url: "/conversation/create",
       type: "post",
@@ -43042,7 +43041,6 @@ $(document).ready(function () {
   }
 
   $(".draggable").draggable({
-    containment: "document",
     stop: function stop() {
       updateMessageDisplay($(this));
     }
