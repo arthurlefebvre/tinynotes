@@ -26,7 +26,7 @@ class CreateMessagesTable extends Migration
             $table->string('zIndex')->nullable();
             $table->timestamps();
 
-            $table->foreign('conversation_id')->references('id')->on('conversations');
+            $table->foreign('conversation_id')->references('id')->on('conversations')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('color_id')->references('id')->on('colors');
         });

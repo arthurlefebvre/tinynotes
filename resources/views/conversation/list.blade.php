@@ -33,9 +33,19 @@
                                                     {{ $user->email.' ' }}
                                                 @endforeach
                                             </td>
-                                            <td><a href="{{ route('conversation.findConversationById', ['id' => $conversation->id]) }}" class="btn btn-success text-white" title="Entrer"><i class="material-icons">
+                                            <td><a href="{{ route('conversation.findConversationById', ['id' => $conversation->id]) }}" class="btn btn-success text-white" title="Entrer">
+                                                <i class="material-icons">
                                                     forward
-                                                </i></a></td>
+                                                </i></a>
+                                                <form action={{ route('conversation.delete', ['id' => $conversation->id]) }} method="post" style="display: inline-block">
+                                                    @csrf
+                                                    <button type="submit" class="btn btn-danger">
+                                                        <i class="material-icons">
+                                                            close
+                                                        </i>
+                                                    </button>
+                                                </form>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 @endif

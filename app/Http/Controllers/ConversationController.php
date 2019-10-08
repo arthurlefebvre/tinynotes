@@ -28,20 +28,27 @@ class ConversationController extends Controller
     public function create(Request $request)
     {
 
-            $conversation = Conversation::create(
-                [
-                    'name' => encrypt($request['name'])
-                ]
-            );
+        $conversation = Conversation::create(
+            [
+                'name' => encrypt($request['name'])
+            ]
+        );
 
-            $conversation->users()->sync([
-                $request['userId'], Auth::user()->id
-            ]);
+        $conversation->users()->sync([
+            $request['userId'], Auth::user()->id
+        ]);
 
-                return response()->json([
-                    'status' => 200,
-                    'id' => $conversation->id
-                ]);
+        return response()->json([
+            'status' => 200,
+            'id' => $conversation->id
+        ]);
+    }
+
+    public function delete(Request $request, $id)
+    {
+        Conversation::destroy($id);
+
+        return redirect()->route('conversation.list');
     }
 
     public function findConversationById($id)
@@ -131,8 +138,8 @@ class ConversationController extends Controller
     {
         $deleteMessage = Message::destroy($request['id']);
 
-            return response()->json([
-                'status' => 200
-            ]);
+        return response()->json([
+            'status' => 200
+        ]);
     }
 }

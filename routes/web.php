@@ -27,6 +27,9 @@ Route::get('conversation', 'ConversationController@index')
 Route::post('conversation/create', 'ConversationController@create')
     ->name('conversation.create');
 
+Route::post('conversation/{id}/delete', 'ConversationController@delete')
+    ->name('conversation.delete');
+
 Route::get('conversation/{id}', 'ConversationController@findConversationById')
     ->name('conversation.findConversationById');
 
