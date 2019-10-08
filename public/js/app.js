@@ -42984,7 +42984,8 @@ $(document).ready(function () {
   });
   $(document).on("click", "#createConversation", function () {
     var userId = sessionStorage.getItem("userId");
-    var name = $("#conversationName").val();
+    var name = $(document).find("#conversationName").val();
+    console.log(name);
     $.ajax({
       url: "/conversation/create",
       type: "post",
