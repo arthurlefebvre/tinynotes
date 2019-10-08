@@ -158,7 +158,7 @@ $(document).ready(function() {
             const message_id = $(ui.draggable).data("id");
             console.log(message_id);
             $.ajax({
-                url: "/conversation/deleteMessage/",
+                url: "/conversation/deleteMessage",
                 type: "post",
                 data: {
                     id: message_id
