@@ -26,7 +26,7 @@
                                 @else
                                     @foreach($conversations as $conversation)
                                         <tr>
-                                            <td>{{ $conversation->name }}</td>
+                                            <td>{{ decrypt($conversation->name) }}</td>
 
                                             <td>
                                                 @foreach( $conversation->users as $user )
