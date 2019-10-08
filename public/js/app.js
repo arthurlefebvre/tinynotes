@@ -42995,7 +42995,8 @@ $(document).ready(function () {
       },
       success: function success(response) {
         if (response["status"] == 200) {
-          window.location.href = "/conversation/" + response["id"];
+          //window.location.href = "/conversation/" + response["id"];
+          console.log(response);
         } else {
           window.location.href = "/conversation/";
         }
