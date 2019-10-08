@@ -58,7 +58,7 @@ $(document).ready(function() {
             errorMessage.hide();
 
             $.ajax({
-                url: "/conversation/findUserByEmail",
+                url: "https://alefebvre.dev/conversation/findUserByEmail",
                 type: "post",
                 data: {
                     email: email.val()
@@ -82,7 +82,7 @@ $(document).ready(function() {
         const userId = sessionStorage.getItem("userId");
         const name = $("#conversationName").val();
         $.ajax({
-            url: "/conversation/create",
+            url: "https://alefebvre.dev/conversation/create",
             type: "post",
             data: {
                 name: name,
@@ -90,9 +90,11 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response["status"] == 200) {
-                    window.location.href = "/conversation/" + response["id"];
+                    window.location.href =
+                        "https://alefebvre.dev/conversation/" + response["id"];
                 } else {
-                    window.location.href = "/conversation/";
+                    window.location.href =
+                        "https://alefebvre.dev/conversation/";
                 }
             },
             error: function(error) {
@@ -105,7 +107,9 @@ $(document).ready(function() {
         const message = elem;
         const message_id = elem.data("id");
         $.ajax({
-            url: "/conversation/updateMessage/" + message_id,
+            url:
+                "https://alefebvre.dev/conversation/updateMessage/" +
+                message_id,
             type: "post",
             data: {
                 left: message.css("left"),
@@ -116,7 +120,8 @@ $(document).ready(function() {
             },
             success: function(response) {
                 if (response["status"] === 403) {
-                    window.location.href = "/conversation/";
+                    window.location.href =
+                        "https://alefebvre.dev/conversation/";
                 }
             },
             error: function(error) {
@@ -158,14 +163,15 @@ $(document).ready(function() {
         drop: function(event, ui) {
             const message_id = $(ui.draggable).data("id");
             $.ajax({
-                url: "/conversation/deleteMessage/",
+                url: "https://alefebvre.dev/conversation/deleteMessage/",
                 type: "post",
                 data: {
                     id: message_id
                 },
                 success: function(response) {
                     if (response["status"] !== 200) {
-                        window.location.href = "/conversation/";
+                        window.location.href =
+                            "https://alefebvre.dev/conversation/";
                     } else {
                         $(ui.draggable).fadeOut("slow");
                     }
