@@ -6,6 +6,7 @@ use App\Color;
 use App\Conversation;
 use App\Message;
 use App\User;
+use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Session\Session;
@@ -27,12 +28,19 @@ class ConversationController extends Controller
 
     public function create(Request $request)
     {
+        try {
+            $conversation = Conversation::create(
+                [
+                    'name' => encrypt($request['name'])
+                ]
+            );
+        } catch (Exception $e) {
+            return response()->json([
+                'status' => 500,
+                'content' => $e->getMessage()
+            ]);
+        }
 
-        $conversation = Conversation::create(
-            [
-                'name' => encrypt($request['name'])
-            ]
-        );
 
         $conversation->users()->sync([
             $request['userId'], Auth::user()->id
