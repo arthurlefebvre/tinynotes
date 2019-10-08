@@ -83,6 +83,7 @@ $(document).ready(function() {
         const name = $(document)
             .find("#conversationName")
             .val();
+        console.log(name);
         $.ajax({
             url: "/conversation/create",
             type: "post",
