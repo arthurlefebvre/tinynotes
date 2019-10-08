@@ -80,7 +80,9 @@ $(document).ready(function() {
 
     $(document).on("click", "#createConversation", function() {
         const userId = sessionStorage.getItem("userId");
-        const name = $("#conversationName").val();
+        const name = $(document)
+            .find("#conversationName")
+            .val();
         $.ajax({
             url: "/conversation/create",
             type: "post",
