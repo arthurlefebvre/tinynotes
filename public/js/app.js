@@ -42989,6 +42989,7 @@ $(document).ready(function () {
     $.ajax({
       url: "/conversation/create",
       type: "post",
+      dataType: "json",
       data: {
         name: name,
         userId: userId
