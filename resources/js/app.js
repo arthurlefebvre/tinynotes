@@ -137,6 +137,7 @@ $(document).ready(function() {
     }
 
     $(".draggable").draggable({
+        containment: "document",
         stop: function() {
             updateMessageDisplay($(this));
         }
