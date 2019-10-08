@@ -43059,9 +43059,10 @@ $(document).ready(function () {
     },
     drop: function drop(event, ui) {
       var message_id = $(ui.draggable).data("id");
+      console.log(message_id);
       $.ajax({
-        url: "/conversation/deleteMessage/",
-        type: "post",
+        url: "/conversation/deleteMessage",
+        type: "POST",
         data: {
           id: message_id
         },
