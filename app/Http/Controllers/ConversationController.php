@@ -27,7 +27,6 @@ class ConversationController extends Controller
 
     public function create(Request $request)
     {
-	return response()->json(['status' => 200, 'content' => $request['name'] ]);
         if ($request['name'] === null) {
 
             return response()->json([
@@ -45,10 +44,17 @@ class ConversationController extends Controller
                 $request['userId'], Auth::user()->id
             ]);
 
-            return response()->json([
-                'status' => 200,
-                'id' => $conversation->id
-            ]);
+            if ($conversation) {
+                return response()->json([
+                    'status' => 200,
+                    'id' => $conversation->id
+                ]);
+            } else {
+                return response()->json([
+                    'status' => 500,
+                    'content' => $conversation
+                ]);
+            }
         }
     }
 
