@@ -27,12 +27,6 @@ class ConversationController extends Controller
 
     public function create(Request $request)
     {
-        if ($request['name'] === null) {
-
-            return response()->json([
-                'status' => 403,
-            ]);
-        } else {
 
             $conversation = Conversation::create(
                 [
@@ -44,18 +38,10 @@ class ConversationController extends Controller
                 $request['userId'], Auth::user()->id
             ]);
 
-            if ($conversation) {
                 return response()->json([
                     'status' => 200,
                     'id' => $conversation->id
                 ]);
-            } else {
-                return response()->json([
-                    'status' => 500,
-                    'content' => $conversation
-                ]);
-            }
-        }
     }
 
     public function findConversationById($id)
@@ -145,14 +131,8 @@ class ConversationController extends Controller
     {
         $deleteMessage = Message::destroy($request['id']);
 
-        if ($deleteMessage) {
             return response()->json([
                 'status' => 200
             ]);
-        } else {
-            return response()->json([
-                'status' => 500
-            ]);
-        }
     }
 }
