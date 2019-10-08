@@ -136,11 +136,6 @@ class ConversationController extends Controller
 
     public function deleteMessage(Request $request)
     {
-
-        return response()->json([
-            'status' => 200,
-            'content' => $request['id']
-        ]);
         $deleteMessage = Message::destroy($request['id']);
 
         if ($deleteMessage) {
