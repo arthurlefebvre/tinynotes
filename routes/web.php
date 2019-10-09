@@ -13,6 +13,7 @@
 
 Auth::routes();
 
+Route::get('/home', 'HomeController@index');
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('redirect', 'Auth\LoginController@redirectToProvider')
