@@ -68,7 +68,7 @@
                                 </button>
 
                                 <a href="{{ route('login.provider') }}" 
-                                    class="btn btn-secondary">{{ __('Google Sign in') }}</a>
+                                    class="btn btn-danger">{{ __('Google Sign in') }}</a>
                             </div>
                         </div>
                     </form>

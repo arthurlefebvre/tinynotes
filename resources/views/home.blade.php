@@ -6,7 +6,7 @@
                 {{ config('app.name', 'TinyNotes') }}
             </h3>
 
-            <div class="alert alert-warning" style="display:inline-block; background-color: #ffff88!important;" role="alert">
+            <div class="alert alert-warning" style="display:inline-block; background-color: #ffff88!important;">
                 <h5>TinyNotes est un site qui vous permet d'échanger avec un proche grâce à des Post-Its ! <br>
                 Faites vous des bisous papiers !
                 </h5>
