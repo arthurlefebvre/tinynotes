@@ -62,12 +62,15 @@
                         </div>
 
                         <div class="form-group row mb-0">
+                                <div class="g-recaptcha"
+                                        data-sitekey="{{env('GOOGLE_RECAPTCHA_KEY')}}">
+                                </div>
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Register') }}
                                 </button>
 
-                                <a href="{{ route('login.provider') }}" 
+                                <a href="{{ route('login.provider') }}"
                                     class="btn btn-danger">{{ __('Google Sign in') }}</a>
                             </div>
                         </div>
