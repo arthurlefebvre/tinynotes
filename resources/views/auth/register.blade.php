@@ -70,7 +70,7 @@
                                 </button>
 
                                 <a href="{{ route('login.provider') }}"
-                                    class="btn btn-danger">{{ __('Google Sign in') }}</a>
+                                    class="btn btn-light"><img src="/google.png" alt="Google logo" width="15px" height="15px"/> {{ __('Google Sign in') }}</a>
                             </div>
                         </div>
                     </form>

@@ -56,8 +56,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     {{ __('Login') }}
                                 </button>
-                                <a href="{{ route('login.provider') }}" 
-                                    class="btn btn-danger">{{ __('Google Sign in') }}</a>
+                                <a href="{{ route('login.provider') }}"
+                                class="btn btn-light"><img src="/google.png" alt="Google logo" width="15px" height="15px"/> {{ __('Google Sign in') }}</a>
 
                                 @if (Route::has('password.request'))
                                     <a class="btn btn-link" href="{{ route('password.request') }}">
