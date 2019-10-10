@@ -12,7 +12,13 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <script type="text/javascript">
+        var onloadCallback = function() {
+          grecaptcha.render(document.getElementById('reCaptcha'), {
+            'sitekey' : '6Ld607wUAAAAAL4ESOGNDiwiWbtr1aWaHyl11gQZ',
+          });
+        };
+      </script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -116,8 +122,9 @@
     </div>
 </body>
 <!-- Scripts -->
-<script src='https://www.google.com/recaptcha/api.js' async defer></script>
-
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+async defer>
+</script>
 <script src="{{ asset('js/app.js') }}"></script>
 
 </html>
