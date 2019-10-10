@@ -12,13 +12,6 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <script type="text/javascript">
-        var onloadCallback = function() {
-          grecaptcha.render(document.getElementById('reCaptcha'), {
-            'sitekey' : '6LcT07wUAAAAAHUeVZBy_8UBMbmd9awb9TFHr0yP',
-          });
-        };
-      </script>
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -69,7 +62,11 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
 
                                     <span class="dropdown-header" >
-                                        {{ auth()->user()->name }}
+                                        @if(auth()->user()->name)
+                                            {{ auth()->user()->name }}
+                                        @else
+                                            {{ auth()->user()->email}}
+                                        @endif
                                     </span>
                                     <a class="dropdown-item {{Route::is('conversation.index') ? 'active' : '' }}" href="{{ route('conversation.index') }}">
                                         {{ __('Démarrer une conversation') }}
@@ -94,7 +91,11 @@
                             <div class="d-block d-sm-none">
                                 <li class="nav-item">
                                     <span class="text-white" >
-                                        {{ auth()->user()->name }}
+                                        @if(auth()->user()->name)
+                                            {{ auth()->user()->name }}
+                                        @else
+                                            {{ auth()->user()->email}}
+                                        @endif
                                     </span>
                                 </li>
                                 <li class="nav-item d-block d-sm-none">
@@ -122,9 +123,7 @@
     </div>
 </body>
 <!-- Scripts -->
-<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
-async defer>
-</script>
+
 <script src="{{ asset('js/app.js') }}"></script>
 
 </html>

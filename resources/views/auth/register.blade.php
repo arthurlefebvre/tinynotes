@@ -63,7 +63,7 @@
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
-                                <div id="reCaptcha"></div>
+                                <div id="reCaptcha" data-sitekey="{{config('app.GOOGLE_RECAPTCHA_KEY')}}"></div>
                                 @if ($errors->has('g-recaptcha-response'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('g-recaptcha-response') }}</strong>
@@ -84,4 +84,16 @@
         </div>
     </div>
 </div>
+
+<script type="text/javascript">
+    var onloadCallback = function() {
+      grecaptcha.render(document.getElementById('reCaptcha'), {
+        'sitekey' : '6LcT07wUAAAAAHUeVZBy_8UBMbmd9awb9TFHr0yP',
+      });
+    };
+  </script>
+
+<script src="https://www.google.com/recaptcha/api.js?onload=onloadCallback&render=explicit"
+async defer>
+</script>
 @endsection

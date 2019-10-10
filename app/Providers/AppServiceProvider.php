@@ -27,7 +27,5 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         Schema::defaultStringLength(191);
-
-        //Validator::extend('recaptcha', 'App\\Validators\\ReCaptcha@validate');
     }
 }

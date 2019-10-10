@@ -32,7 +32,7 @@ class ValidRecaptcha implements Rule
             [
                 'form_params' =>
                 [
-                    'secret' => env('GOOGLE_RECAPTCHA_SECRET'),
+                    'secret' => config('app.GOOGLE_RECAPTCHA_SECRET'),
                     'response' => $value
                 ]
             ]
