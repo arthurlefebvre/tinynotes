@@ -15,7 +15,7 @@
     <script type="text/javascript">
         var onloadCallback = function() {
           grecaptcha.render(document.getElementById('reCaptcha'), {
-            'sitekey' : '6Ld607wUAAAAAL4ESOGNDiwiWbtr1aWaHyl11gQZ',
+            'sitekey' : '6LcT07wUAAAAAHUeVZBy_8UBMbmd9awb9TFHr0yP',
           });
         };
       </script>
