@@ -10817,7 +10817,7 @@ a.text-dark:focus {
   line-height: 1;
   text-align: center;
   word-wrap: break-word;
-  overflow: scroll;
+  overflow: hidden;
   width: 350px;
   padding: 35px;
   position: relative;
@@ -10837,7 +10837,7 @@ a.text-dark:focus {
     line-height: 1;
     text-align: center;
     word-wrap: break-word;
-    overflow: scroll;
+    overflow: hidden;
     width: 200px;
     height: 200px;
     padding: 35px;
@@ -10859,7 +10859,7 @@ a.text-dark:focus {
     line-height: 1;
     text-align: center;
     word-wrap: break-word;
-    overflow: scroll;
+    overflow: hidden;
     width: 250px;
     height: 250px;
     padding: 35px;
