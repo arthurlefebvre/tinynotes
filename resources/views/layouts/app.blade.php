@@ -29,7 +29,7 @@
             <div class="container-fluid">
                 <img src="/post-it.svg" class="mr-3" height="30px" width="30px" alt="logo"/>
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
+                    {{ config('app.name', 'Laravel') }}<small> <span class="badge badge-danger">En cours de développement</span></small>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
