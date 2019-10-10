@@ -47,7 +47,7 @@ class LoginController extends Controller
     {
 
         return Socialite::driver('google')
-            ->scopes(['openid', 'profile', 'email', Google_Service_People::CONTACTS_READONLY])
+            //->scopes(['openid', 'profile', 'email', Google_Service_People::CONTACTS_READONLY])
             ->redirect();
     }
 

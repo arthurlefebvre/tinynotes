@@ -14,7 +14,7 @@
                     @csrf
                     <div class="modal-body">
                         <div class="form-group">
-                            <textarea id="message" style="text-align: center;" rows="10" cols="70" class="form-control" required name="message" placeholder="Votre message"></textarea>
+                            <textarea id="message" style="text-align: center;white-space:pre-wrap;" rows="10" cols="70" class="form-control" required name="message" placeholder="Votre message"></textarea>
                         </div>
 
                         <div class="form-group">
