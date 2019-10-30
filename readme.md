@@ -2,6 +2,8 @@
 
 A small projet to discuss with your friends via post-it like messages.
 
+https://tinynotes.alefebvre.dev/
+
 Example:
 ![alt text](tinynotes_example.png "Post-it message example screenshot")
 
